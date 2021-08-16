@@ -10,8 +10,8 @@
 <body>
     <header><h1>ROCK PAPER SCISSORS</h1></header>
     <div class="score-board">
-        <div id="user-label" class="badge"></div>
-        <div id="computer-label" class="badge"></div>
+        <div id="user-label" class="badge">User</div>
+        <div id="computer-label" class="badge">Computer</div>
         <span id="user-score">0</span> : <span id="computer-score">0</span>
 
     </div>
@@ -20,18 +20,18 @@
     </div>
 
         <div class="choices">
-            <div class="choice">
+            <div class="choice" id="r">
                 <img src="" alt="">
             </div>
-            <div class="choice">
+            <div class="choice" id="p">
                 <img src="" alt="">
             </div>    
-            <div class="choice">
+            <div class="choice" id="s">
                 <img src="" alt="">            
             </div>
         </div>
 
-     
+     <p id="action-message">Your turn</p>
 
     <script src="app.js"></script>
 </body>
