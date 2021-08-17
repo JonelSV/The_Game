@@ -16,11 +16,46 @@ function getComputerChoice(){
 
 }
 
-console.log(getComputerChoice())
+function win() {
+    console.log("win")
+}
+
+function lose() {
+    console.log("lose")
+}
+
+function draw() {
+    console.log("draw")
+}
+
 
 function game(userChoice){
-    console.log("you selected" + ' ' + userChoice)
+    const computerChoice = getComputerChoice();
+    // console.log("you selected" + ' ' + userChoice)
+    // console.log("computer choice" +' '+ computerChoice)
+
+    switch(userChoice + computerChoice) {
+        case "rs":
+        case "pr":
+        case "sp":
+            // console.log ("USER WINS");
+            win()
+            break;
+        case "rp":
+        case "ps":
+        case "sr":
+            // console.log ("USER LOSES");
+            lose()
+            break;
+        case "rr":
+        case "pp":
+        case "ss":
+            // console.log ("IT'S A DRAW");
+            draw()
+            break;
+    }
 }
+
 
 
 
@@ -40,4 +75,4 @@ function main(){
 
 }
 
-main();
+main()
