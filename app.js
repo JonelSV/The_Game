@@ -111,5 +111,8 @@ main();
 
 
 function winner () {
-    
+
 }
+
+const btn = document.querySelectorAll(".modal");
+console.log(btn)
