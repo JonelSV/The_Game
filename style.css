@@ -106,3 +106,22 @@ header > h1 {
     border: 4px solid #464647;
     box-shadow: 0 0 10px #25292b;
 }
+
+.modalWrapper {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(200, 200, 200);
+    overflow-y: scroll ;
+}
+
+.modalBody {
+    width: 50%;
+    left: 25%;
+    top: 10%;
+    position: absolute;
+    background-color: aliceblue;
+}
