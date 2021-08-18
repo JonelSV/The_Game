@@ -113,6 +113,29 @@ main();
 function winner () {
 
 }
-
+// Modal added
 const btn = document.querySelectorAll(".modal");
-console.log(btn)
+const modalWrapper = document.querySelector(".modalWrapper");
+// check if it's working
+// console.log(btn)
+
+btn.forEach(function(button){
+
+// console.log(button)
+    makeClick(button)
+
+})
+
+function makeClick(x) {
+    x.addEventListener("click", function(){
+        // console.log("clicked")
+        modalWrapper.classList.add("showModal");
+        const closeButton = document.querySelector(".close");
+        closeButton.addEventListener("click", function(){
+            return modalWrapper.classList.remove("showModal")
+        })
+        modalWrapper.addEventListener("click", function(){
+            return modalWrapper.classList.remove("showModal")
+        })
+    })
+}
