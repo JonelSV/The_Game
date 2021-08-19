@@ -11,22 +11,29 @@
     
     <header><h1>ROCK PAPER SCISSORS</h1></header>
    
-    <div class="roundAlert">roundAlert</div>
+    <div class="roundAlert" id="end">CONGRATULATIONS! YOU WON!
+        <span class="continue" id="continue"> Click Button to continue<button id="continue_button">WINNER</button></span>
+    </div>
+
+    <div class="roundAlert2" id="end2">Sorry, You Lost.
+        <span class="continue2" id="continue2"> Click Button to continue<button id="continue_button2">LOSER</button></span>
+    </div>
+    
     <div class="round-board">
-        <div id="user-label" class="badge">User</div>
+        <div id="user-label" class="badge">Player</div>
         <div id="computer-label" class="badge">Computer</div>
         <span id="user-round-score">0</span> : <span id="computer-round-score">0</span>
     </div>
     
     <div class="score-board">
-        <div id="user-label" class="badge">User</div>
+        <div id="user-label" class="badge">Player</div>
         <div id="computer-label" class="badge">Computer</div>
         <span id="user-score">0</span> : <span id="computer-score">0</span>
 
     </div>
     
      <div class="result">
-        <p> Win </p>
+        <p></p>
     </div>
 
         <div class="choices">
@@ -41,12 +48,12 @@
             </div>
         </div>
 
-     <p id="action-message">Your turn</p>
+     <p id="action-message"></p>
 
      <button data-modal-target="#modal">Rules</button>
      <div class="modal" id="modal">
        <div class="modal-header">
-         <div class="title">Example Modal</div>
+         <div class="title">Game Rules</div>
          <button data-close-button class="close-button">Start</button>
        </div>
        <div class="modal-body">

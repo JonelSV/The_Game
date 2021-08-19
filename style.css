@@ -55,7 +55,7 @@ header > h1 {
 
 .badge {
     background: crimson;
-    color: white;
+    color:lightcyan;
     font-size: 15px;
     padding: 5px 5px;
     font-family: cursive;
@@ -74,8 +74,8 @@ header > h1 {
 }
 
 .result {
-    font-size: 4 0 px;
-    color: whitesmoke;
+    font-size: 8 0 px;
+    color: plum;
 }
 
 .result > p {
@@ -189,4 +189,58 @@ header > h1 {
   #overlay.active {
     opacity: 1;
     pointer-events: all;
+  }
+
+
+  .roundAlert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 3px solid peachpuff;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: gray;
+    width: 500px;
+    height: 30px;
+    justify-content: space-between;
+    align-content: center;
+    max-width: 80%;
+  }
+
+  .roundAlert.active {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .continue {
+      font-size: 15px;
+      color: blanchedalmond;
+      left: 20%;
+  }
+
+  
+  .roundAlert2 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 3px solid peachpuff;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: red;
+    width: 500px;
+    max-width: 80%;
+    color: bisque;
+  }
+
+  .roundAlert2.active2 {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .continue2 {
+      font-size: 10px;
+      color: blanchedalmond;
+      left: 20%;
   }

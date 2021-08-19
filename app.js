@@ -29,13 +29,13 @@ function convert(letter) {
 
 
 function win(userChoice, computerChoice) {
-    const smallUserWord = "user".fontsize(3).sup();
-    const smallCompWord = "comp".fontsize(3).sup();
+    const smallUserWord = "Player".fontsize(5).toUpperCase();
+    const smallCompWord = "Computer".fontsize(5).toUpperCase();
     const userGlow = document.getElementById(userChoice)
     userScore++;
     userScore_span.innerHTML = userScore;
     computerScore_span.innerHTML = computerScore;
-    result_p.innerHTML = `${convert(userChoice)} ${smallUserWord}  beats ${convert(computerChoice)} ${smallCompWord}  'You win'`;
+    result_p.innerHTML = `${smallUserWord} ${convert(userChoice)}    WON AGAINST    ${smallCompWord} ${convert(computerChoice)}`;
     userGlow.classList.add('glow1');
     setTimeout(function(){userGlow.classList.remove('glow1')}, 500)
     if(userScore == 5){
@@ -48,16 +48,19 @@ function win(userChoice, computerChoice) {
         userRoundScore++
         userRound_div.innerHTML = userRoundScore;
     }
+    if(userRoundScore === 3) {
+        endGame()
+    }
 }
 
 function lose(userChoice, computerChoice) {
-    const smallUserWord = "user".fontsize(3).sub();
-    const smallCompWord = "comp".fontsize(3).sub();
+    const smallUserWord = "Player".fontsize(5).toUpperCase();
+    const smallCompWord = "Computer".fontsize(5).toUpperCase();
     const userGlow = document.getElementById(userChoice)
     computerScore++;
     userScore_span.innerHTML = userScore;
     computerScore_span.innerHTML = computerScore;
-    result_p.innerHTML = `${convert(userChoice)} ${smallUserWord}  loses to ${convert(computerChoice)} ${smallCompWord}  'You lost'`;
+    result_p.innerHTML = `${smallUserWord} ${convert(userChoice)}    LOST TO    ${smallCompWord} ${convert(computerChoice)}`;
     userGlow.classList.add('glow2');
     setTimeout(function(){userGlow.classList.remove('glow2')}, 500)
     if(computerScore == 5){
@@ -70,17 +73,20 @@ function lose(userChoice, computerChoice) {
         computerRoundScore++
         computerRound_div.innerHTML = computerRoundScore;
     }
+    if(computerRoundScore === 3) {
+        endGame2()
+    }
 
 }
 
 
 function draw(userChoice, computerChoice) {
-    const smallUserWord = "user".fontsize(3).sub();
-    const smallCompWord = "comp".fontsize(3).sub();
+    const smallUserWord = "Player".fontsize(5).toUpperCase();
+    const smallCompWord = "Computer".fontsize(5).toUpperCase();
     const userGlow = document.getElementById(userChoice)
     userScore_span.innerHTML = userScore;
     computerScore_span.innerHTML = computerScore;
-    result_p.innerHTML = `${convert(userChoice)} ${smallUserWord}  equals ${convert(computerChoice)} ${smallCompWord}  'It's a draw'`;
+    result_p.innerHTML = `${smallUserWord}  ${convert(userChoice)}   IS A DRAW AGAINST   ${smallCompWord} ${convert(computerChoice)} ---It's a draw`;
     userGlow.classList.add('glow3');
     setTimeout(function(){userGlow.classList.remove('glow3')}, 500)
 
@@ -134,18 +140,32 @@ function main(){
 main();
 
 
-let gameVictory = (userRoundScore === 3)
-let gameLoss = (computerRoundScore ===3)
 
 endGame = () => {
-    if (gameVictory) {
-        alert("you won")
-    } else {
-        alert("you lost")
-    }
+    let finish = document.getElementById("end")
+    finish.classList.add("active")
 }
 
-endGame()
+const continueButton = document.getElementById('continue_button')
+let finish = document.getElementById("end")
+continueButton.addEventListener('click', () =>{
+    finish.classList.remove("active")
+})
+
+
+endGame2 = () => {
+    let loss = document.getElementById("end2")
+    loss.classList.add("active2")
+}
+
+const continueButton2 = document.getElementById('continue_button2')
+let loss = document.getElementById("end2")
+continueButton2.addEventListener('click', () =>{
+    loss.classList.remove("active2")
+})
+
+
+
 
 // // Modal added
 const openModalButtons = document.querySelectorAll('[data-modal-target]')
