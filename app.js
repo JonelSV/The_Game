@@ -43,14 +43,21 @@ function win(userChoice, computerChoice) {
     if(userScore == 5){
         userRoundScore++
         userRound_div.innerHTML = userRoundScore;
+        roundCheck()
     }else if(userScore == 10){
         userRoundScore++
         userRound_div.innerHTML = userRoundScore;
+        roundCheck()
     }else if(userScore == 15){
         userRoundScore++
         userRound_div.innerHTML = userRoundScore;
+        roundCheck()
+    }else if(userScore == 20){
+        userRoundScore++
+        userRound_div.innerHTML = userRoundScore;
+        roundCheck()
     }
-    if(userRoundScore === 3) {
+    if(userRoundScore === 4) {
         endGame()
     }
 }
@@ -70,14 +77,21 @@ function lose(userChoice, computerChoice) {
     if(computerScore == 5){
         computerRoundScore++
         computerRound_div.innerHTML = computerRoundScore;
+        roundCheck()
     }else if(computerScore == 10){
         computerRoundScore++
         computerRound_div.innerHTML = computerRoundScore;
+        roundCheck()
     }else if(computerScore == 15){
         computerRoundScore++
         computerRound_div.innerHTML = computerRoundScore;
+        roundCheck()
+    }else if(userScore == 20){
+        userRoundScore++
+        userRound_div.innerHTML = userRoundScore;
+        roundCheck()
     }
-    if(computerRoundScore === 3) {
+    if(computerRoundScore === 4) {
         endGame2()
     }
 
@@ -172,10 +186,23 @@ continueButton2.addEventListener('click', () =>{
     loss.classList.remove("active2")
 })
 
+// Round Cheker
+roundCheck = () => {
+    let rCheck = document.getElementById("roundCheckID")
+    rCheck.classList.add("active")
+}
+
+const check = document.getElementById('roundCheckButton')
+let rCheck = document.getElementById('roundCheckID')
+check.addEventListener('click', () => {
+    rCheck.classList.remove('active')
+})
 
 
 
-// // Modal added
+
+
+// // Modal added for rules
 const openModalButtons = document.querySelectorAll('[data-modal-target]')
 const closeModalButtons = document.querySelectorAll('[data-close-button]')
 const overlay = document.getElementById('overlay')

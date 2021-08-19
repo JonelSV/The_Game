@@ -254,3 +254,31 @@ header > h1 {
       color: blanchedalmond;
       left: 20%;
   }
+
+  
+  .roundCheck {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 3px solid peachpuff;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: gray;
+    width: 500px;
+    height: 40px;
+        align-content: center;
+    max-width: 80%;
+    font-size: 30px;
+  }
+
+  .roundCheck.active {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .roundSpan {
+      font-size: 20px;
+      color: blanchedalmond;
+      left: 20%;
+  }
