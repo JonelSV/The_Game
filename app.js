@@ -1,5 +1,9 @@
 let userScore = 1;
 let computerScore = 1;
+let userRoundScore = 0;
+let computerRoundScore = 0;
+const userRound_div = document.getElementById("user-round-score");
+const computerRound_div = document.getElementById("computer-round-score");
 const userScore_span = document.getElementById("user-score");
 const computerScore_span = document.getElementById("computer-score");
 const scoreBoard_div = document.querySelector(".score-board");
@@ -22,6 +26,11 @@ function convert(letter) {
     return "Scissors";
 }
 
+function roundWinAlert() {
+    if(userRoundScore == 1){  
+    openModal2(openModalPrompt)
+    }
+}
 
 function win(userChoice, computerChoice) {
     const smallUserWord = "user".fontsize(3).sup();
@@ -33,6 +42,10 @@ function win(userChoice, computerChoice) {
     result_p.innerHTML = `${convert(userChoice)} ${smallUserWord}  beats ${convert(computerChoice)} ${smallCompWord}  'You win'`;
     userGlow.classList.add('glow1');
     setTimeout(function(){userGlow.classList.remove('glow1')}, 500)
+    if(userScore == 5){
+        userRoundScore++
+        userRound_div.innerHTML = userRoundScore;
+    }
 
 }
 
@@ -117,36 +130,17 @@ function winner () {
 
 
 // // Modal added
-// const btn = document.querySelectorAll(".modal");
-// const modalWrapper = document.querySelector(".modalWrapper");
-// // check if it's working
-// // console.log(btn)
 
-// btn.forEach(function(button){
-
-// // console.log(button)
-//     makeClick(button)
-
-// })
-
-// function makeClick(x) {
-//     x.addEventListener("click", function(){
-//         // console.log("clicked")
-//         modalWrapper.classList.add("showModal");
-//         const closeButton = document.querySelector(".close");
-//         closeButton.addEventListener("click", function(){
-//             return modalWrapper.classList.remove("showModal")
-//         })
-//         modalWrapper.addEventListener("click", function(){
-//             return modalWrapper.classList.remove("showModal")
-//         })
-//     })
-// }
-
-const openModalButtons = document.querySelectorAll('[data-modal-target]')
-const closeModalButtons = document.querySelectorAll('[data-close-button]')
+const openModalButtons = document.querySelector('[data-modal-target]')
+const closeModalButtons = document.querySelector('[data-close-button]')
 const overlay = document.getElementById('overlay')
 
+const openModalPrompt = document.querySelector('[data-modal-target2')
+const closeModalPrompt = document.querySelector('[data-close-button2]')
+
+
+
+///////////////
 openModalButtons.forEach(button => {
   button.addEventListener('click', () => {
     const modal = document.querySelector(button.dataset.modalTarget)
@@ -182,34 +176,7 @@ function closeModal(modal) {
 
 
 
-// const openModalButtons = document.querySelectorAll("[data-modal-target]")
-// const closeModalButtons = document.querySelectorAll("[data-close-button]")
-// const overlay = document.getElementById("overlay")
-
-// openModalButtons.forEach(button => {
-//     button.addEventListener("click", () => {
-//         const modal = document.querySelector(button.dataset.modalTarget)
-//         openModal(modal)
-//     })
-// })
 
 
-// closeModalButtons.forEach(button => {
-//     button.addEventListener("click", () => {
-//         const modal = button.closest(".modal")
-//         closeModal(modal)
-//     })
-// })
-
-// function openModal(modal) {
-//     if (modal == null) return
-//     modal.classList.add("active")
-//     overlay.classList.add("active")
-// }
 
 
-// function closeModal(modal) {
-//     if (modal == null) return
-//     modal.classList.remove("active")
-//     overlay.classList.remove("active")
-// }
