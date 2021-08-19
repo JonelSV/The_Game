@@ -12,13 +12,15 @@ const rock_div = document.getElementById("r");
 const paper_div = document.getElementById("p");
 const scissor_div = document.getElementById("s");
 
-
+// get random computer choice.
 function getComputerChoice(){
     const choices = ['r', 'p', 's'];
     const randomNumber = Math.floor(Math.random() * 3);
     return choices[randomNumber];
 
 }
+// function to convert initial parameters in order to reflect the 
+// full words, ROCK PAPER SCISSOR on the output screen
 
 function convert(letter) {
     if (letter === "r") return "Rock";
@@ -26,7 +28,7 @@ function convert(letter) {
     return "Scissors";
 }
 
-
+// output win results
 
 function win(userChoice, computerChoice) {
     const smallUserWord = "Player".fontsize(5).toUpperCase();
@@ -52,6 +54,8 @@ function win(userChoice, computerChoice) {
         endGame()
     }
 }
+
+// output lose results
 
 function lose(userChoice, computerChoice) {
     const smallUserWord = "Player".fontsize(5).toUpperCase();
@@ -79,6 +83,7 @@ function lose(userChoice, computerChoice) {
 
 }
 
+// draw function and output results
 
 function draw(userChoice, computerChoice) {
     const smallUserWord = "Player".fontsize(5).toUpperCase();
@@ -92,6 +97,7 @@ function draw(userChoice, computerChoice) {
 
 }
 
+// function to determine if it is a win, a lose or a draw
 
 function game(userChoice){
     const computerChoice = getComputerChoice();
@@ -119,7 +125,7 @@ function game(userChoice){
 }
 
 
-
+// funciton for picking RPS choice
 
 function main(){
 
@@ -140,11 +146,13 @@ function main(){
 main();
 
 
-
+// function to check the end of the game, pop up prompt
 endGame = () => {
     let finish = document.getElementById("end")
     finish.classList.add("active")
 }
+
+// when continue button is clicked, the prompt disappears
 
 const continueButton = document.getElementById('continue_button')
 let finish = document.getElementById("end")
