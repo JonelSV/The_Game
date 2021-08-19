@@ -2,7 +2,7 @@ let userScore = 0;
 let computerScore = 0;
 let userRoundScore = 0;
 let computerRoundScore = 0;
-const userRound_div = document.getElementById("user-round-score");
+const userRound = document.getElementById("user-round-score");
 const computerRound_div = document.getElementById("computer-round-score");
 const userScore_span = document.getElementById("user-score");
 const computerScore_span = document.getElementById("computer-score");
@@ -42,18 +42,18 @@ function win(userChoice, computerChoice) {
     setTimeout(function(){userGlow.classList.remove('glow1')}, 500)
     if(userScore == 5){
         userRoundScore++
-        userRound_div.innerHTML = userRoundScore;
+        userRound.innerHTML = userRoundScore;
         roundCheck()
     }else if(userScore == 10){
         userRoundScore++
-        userRound_div.innerHTML = userRoundScore;
+        userRound.innerHTML = userRoundScore;
         roundCheck()
     }else if(userScore == 15){
         userRoundScore++
-        userRound_div.innerHTML = userRoundScore;
+        userRound.innerHTML = userRoundScore;
     }else if(userScore == 20){
         userRoundScore++
-        userRound_div.innerHTML = userRoundScore;
+        userRound.innerHTML = userRoundScore;
         roundCheck()
     }
     if(userRoundScore === 3) {
@@ -86,7 +86,7 @@ function lose(userChoice, computerChoice) {
         computerRound_div.innerHTML = computerRoundScore;
     }else if(userScore == 20){
         userRoundScore++
-        userRound_div.innerHTML = userRoundScore;
+        userRound.innerHTML = userRoundScore;
         roundCheck()
     }
     if(computerRoundScore === 3) {
