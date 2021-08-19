@@ -22,6 +22,11 @@ header > h1 {
     text-align: center;
 }
 
+.scoreCounter {
+    position: relative;
+    color: powderblue;
+    text-align: center;
+}
 
 .score-board {
       margin: 20px auto;

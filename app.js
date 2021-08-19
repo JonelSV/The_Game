@@ -35,7 +35,7 @@ function win(userChoice, computerChoice) {
     userScore++;
     userScore_span.innerHTML = userScore;
     computerScore_span.innerHTML = computerScore;
-    result_p.innerHTML = `${smallUserWord} ${convert(userChoice)}    WON AGAINST    ${smallCompWord} ${convert(computerChoice)}`;
+    result_p.innerHTML = `${smallUserWord} \u00A0\u00A0 ${convert(userChoice)}\u00A0\u00A0 WON AGAINST\u00A0\u00A0 ${smallCompWord}\u00A0\u00A0 ${convert(computerChoice)}`;
     userGlow.classList.add('glow1');
     setTimeout(function(){userGlow.classList.remove('glow1')}, 500)
     if(userScore == 5){
@@ -60,7 +60,7 @@ function lose(userChoice, computerChoice) {
     computerScore++;
     userScore_span.innerHTML = userScore;
     computerScore_span.innerHTML = computerScore;
-    result_p.innerHTML = `${smallUserWord} ${convert(userChoice)}    LOST TO    ${smallCompWord} ${convert(computerChoice)}`;
+    result_p.innerHTML = `${smallUserWord} \u00A0\u00A0 ${convert(userChoice)}\u00A0\u00A0LOST TO\u00A0\u00A0 ${smallCompWord}\u00A0\u00A0 ${convert(computerChoice)}`;
     userGlow.classList.add('glow2');
     setTimeout(function(){userGlow.classList.remove('glow2')}, 500)
     if(computerScore == 5){
@@ -86,7 +86,7 @@ function draw(userChoice, computerChoice) {
     const userGlow = document.getElementById(userChoice)
     userScore_span.innerHTML = userScore;
     computerScore_span.innerHTML = computerScore;
-    result_p.innerHTML = `${smallUserWord}  ${convert(userChoice)}   IS A DRAW AGAINST   ${smallCompWord} ${convert(computerChoice)} ---It's a draw`;
+    result_p.innerHTML = `${smallUserWord} \u00A0\u00A0 ${convert(userChoice)} \u00A0\u00A0 IS A DRAW AGAINST \u00A0\u00A0 ${smallCompWord} \u00A0\u00A0 ${convert(computerChoice)}\u00A0\u00A0 --> IT IS A DRAW!`;
     userGlow.classList.add('glow3');
     setTimeout(function(){userGlow.classList.remove('glow3')}, 500)
 
