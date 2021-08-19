@@ -22,9 +22,9 @@ function getComputerChoice(){
 // function to convert initial parameters in order to reflect the 
 // full words, ROCK PAPER SCISSOR on the output screen
 
-function convert(letter) {
-    if (letter === "r") return "Rock";
-    if (letter === "p") return "Paper";
+function convert(userSelection) {
+    if (userSelection === "r") return "Rock";
+    if (userSelection === "p") return "Paper";
     return "Scissors";
 }
 
@@ -51,13 +51,12 @@ function win(userChoice, computerChoice) {
     }else if(userScore == 15){
         userRoundScore++
         userRound_div.innerHTML = userRoundScore;
-        roundCheck()
     }else if(userScore == 20){
         userRoundScore++
         userRound_div.innerHTML = userRoundScore;
         roundCheck()
     }
-    if(userRoundScore === 4) {
+    if(userRoundScore === 3) {
         endGame()
     }
 }
@@ -85,13 +84,12 @@ function lose(userChoice, computerChoice) {
     }else if(computerScore == 15){
         computerRoundScore++
         computerRound_div.innerHTML = computerRoundScore;
-        roundCheck()
     }else if(userScore == 20){
         userRoundScore++
         userRound_div.innerHTML = userRoundScore;
         roundCheck()
     }
-    if(computerRoundScore === 4) {
+    if(computerRoundScore === 3) {
         endGame2()
     }
 

@@ -203,6 +203,7 @@ header > h1 {
 
   .roundAlert {
     position: fixed;
+    
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
@@ -212,8 +213,8 @@ header > h1 {
     z-index: 10;
     background-color: gray;
     width: 500px;
-    height: 30px;
-        align-content: center;
+    height: 40px;
+    align-content: center;
     max-width: 80%;
     font-size: 30px;
   }
@@ -258,17 +259,18 @@ header > h1 {
   
   .roundCheck {
     position: fixed;
+    margin-top: 10px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
     transition: 200ms ease-in-out;
-    border: 3px solid peachpuff;
+    border: 5px solid peachpuff;
     border-radius: 10px;
     z-index: 10;
-    background-color: gray;
-    width: 500px;
-    height: 40px;
-        align-content: center;
+    background-color:lightskyblue;
+    width: 900px;
+    height: 60px;
+    align-content: center;
     max-width: 80%;
     font-size: 30px;
   }
@@ -281,4 +283,24 @@ header > h1 {
       font-size: 20px;
       color: blanchedalmond;
       left: 20%;
+  }
+
+  
+.glowButton {
+    color:grey;
+    border: 2px solid rgb(2, 216, 180);
+    border-radius: 25%;
+    padding: 12px 12px;
+    display: inline-block;
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 15px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: inset 0 0 5 5 #4202d8;
+    margin: 5px;
+    transition: ease-out 0.4s;
+  }
+
+  .glowButton:hover {
+    box-shadow: inset 0 100px 0 0 #D80286;
   }
