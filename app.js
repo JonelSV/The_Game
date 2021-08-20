@@ -1,19 +1,19 @@
+//Define Variables
+const userRound = document.getElementById("user-round-score");
+const computerRoundz = document.getElementById("computer-round-score");
+const userScoreDisplay = document.getElementById("user-score");
+const computerScoreDisplay = document.getElementById("computer-score");
+const resultDisplay = document.querySelector(".result > p")
+const rockChoice = document.getElementById("r");
+const paperChoice = document.getElementById("p");
+const scissorChoice = document.getElementById("s");
 let userScore = 0;
 let computerScore = 0;
 let userRoundScore = 0;
 let computerRoundScore = 0;
-const userRound = document.getElementById("user-round-score");
-const computerRound_div = document.getElementById("computer-round-score");
-const userScore_span = document.getElementById("user-score");
-const computerScore_span = document.getElementById("computer-score");
-const scoreBoard_div = document.querySelector(".score-board");
-const result_p = document.querySelector(".result > p")
-const rock_div = document.getElementById("r");
-const paper_div = document.getElementById("p");
-const scissor_div = document.getElementById("s");
 
 // get random computer choice.
-function getComputerChoice(){
+randomComputerChoice =()=>{
     const choices = ['r', 'p', 's'];
     const randomNumber = Math.floor(Math.random() * 3);
     return choices[randomNumber];
@@ -22,22 +22,24 @@ function getComputerChoice(){
 // function to convert initial parameters in order to reflect the 
 // full words, ROCK PAPER SCISSOR on the output screen
 
-function convert(userSelection) {
+translate = (userSelection) => {
     if (userSelection === "r") return "Rock";
     if (userSelection === "p") return "Paper";
     return "Scissors";
 }
 
 // output win results
+// round check/update every 5 points
+// end game function added at the end
 
-function win(userChoice, computerChoice) {
-    const smallUserWord = "Player".fontsize(5).toUpperCase();
-    const smallCompWord = "Computer".fontsize(5).toUpperCase();
+win = (userChoice, computerChoice) => {
+    const playerUpCase = "Player".fontsize(5).toUpperCase();
+    const computerUpCase = "Computer".fontsize(5).toUpperCase();
     const userGlow = document.getElementById(userChoice)
     userScore++;
-    userScore_span.innerHTML = userScore;
-    computerScore_span.innerHTML = computerScore;
-    result_p.innerHTML = `${smallUserWord} \u00A0\u00A0 ${convert(userChoice)}\u00A0\u00A0 WON AGAINST\u00A0\u00A0 ${smallCompWord}\u00A0\u00A0 ${convert(computerChoice)}`;
+    userScoreDisplay.innerHTML = userScore;
+    computerScoreDisplay.innerHTML = computerScore;
+    resultDisplay.innerHTML = `${playerUpCase} \u00A0\u00A0 ${translate(userChoice)}\u00A0\u00A0 WON AGAINST\u00A0\u00A0 ${computerUpCase}\u00A0\u00A0 ${translate(computerChoice)}`;
     userGlow.classList.add('glow1');
     setTimeout(function(){userGlow.classList.remove('glow1')}, 500)
     if(userScore == 5){
@@ -62,28 +64,31 @@ function win(userChoice, computerChoice) {
 }
 
 // output lose results
+// round check/update every 5 points
+// end game function added at the end
 
-function lose(userChoice, computerChoice) {
-    const smallUserWord = "Player".fontsize(5).toUpperCase();
-    const smallCompWord = "Computer".fontsize(5).toUpperCase();
+
+lose = (userChoice, computerChoice) => {
+    const playerUpCase = "Player".fontsize(5).toUpperCase();
+    const computerUpCase = "Computer".fontsize(5).toUpperCase();
     const userGlow = document.getElementById(userChoice)
     computerScore++;
-    userScore_span.innerHTML = userScore;
-    computerScore_span.innerHTML = computerScore;
-    result_p.innerHTML = `${smallUserWord} \u00A0\u00A0 ${convert(userChoice)}\u00A0\u00A0LOST TO\u00A0\u00A0 ${smallCompWord}\u00A0\u00A0 ${convert(computerChoice)}`;
+    userScoreDisplay.innerHTML = userScore;
+    computerScoreDisplay.innerHTML = computerScore;
+    resultDisplay.innerHTML = `${playerUpCase} \u00A0\u00A0 ${translate(userChoice)}\u00A0\u00A0LOST TO\u00A0\u00A0 ${computerUpCase}\u00A0\u00A0 ${translate(computerChoice)}`;
     userGlow.classList.add('glow2');
     setTimeout(function(){userGlow.classList.remove('glow2')}, 500)
     if(computerScore == 5){
         computerRoundScore++
-        computerRound_div.innerHTML = computerRoundScore;
+        computerRoundz.innerHTML = computerRoundScore;
         roundCheck()
     }else if(computerScore == 10){
         computerRoundScore++
-        computerRound_div.innerHTML = computerRoundScore;
+        computerRoundz.innerHTML = computerRoundScore;
         roundCheck()
     }else if(computerScore == 15){
         computerRoundScore++
-        computerRound_div.innerHTML = computerRoundScore;
+        computerRoundz.innerHTML = computerRoundScore;
     }else if(userScore == 20){
         userRoundScore++
         userRound.innerHTML = userRoundScore;
@@ -97,13 +102,13 @@ function lose(userChoice, computerChoice) {
 
 // draw function and output results
 
-function draw(userChoice, computerChoice) {
-    const smallUserWord = "Player".fontsize(5).toUpperCase();
-    const smallCompWord = "Computer".fontsize(5).toUpperCase();
+draw = (userChoice, computerChoice) => {
+    const playerUpCase = "Player".fontsize(5).toUpperCase();
+    const computerUpCase = "Computer".fontsize(5).toUpperCase();
     const userGlow = document.getElementById(userChoice)
-    userScore_span.innerHTML = userScore;
-    computerScore_span.innerHTML = computerScore;
-    result_p.innerHTML = `${smallUserWord} \u00A0\u00A0 ${convert(userChoice)} \u00A0\u00A0 IS A DRAW AGAINST \u00A0\u00A0 ${smallCompWord} \u00A0\u00A0 ${convert(computerChoice)}\u00A0\u00A0 --> IT IS A DRAW!`;
+    userScoreDisplay.innerHTML = userScore;
+    computerScoreDisplay.innerHTML = computerScore;
+    resultDisplay.innerHTML = `${playerUpCase} \u00A0\u00A0 ${translate(userChoice)} \u00A0\u00A0 IS A DRAW AGAINST \u00A0\u00A0 ${computerUpCase} \u00A0\u00A0 ${translate(computerChoice)}\u00A0\u00A0 --> IT IS A DRAW!`;
     userGlow.classList.add('glow3');
     setTimeout(function(){userGlow.classList.remove('glow3')}, 500)
 
@@ -111,8 +116,8 @@ function draw(userChoice, computerChoice) {
 
 // function to determine if it is a win, a lose or a draw
 
-function game(userChoice){
-    const computerChoice = getComputerChoice();
+game = (userChoice) => {
+    const computerChoice = randomComputerChoice();
     
     switch(userChoice + computerChoice) {
         case "rs":
@@ -139,17 +144,17 @@ function game(userChoice){
 
 // funciton for picking RPS choice
 
-function main(){
+main = ()=>{
 
-    rock_div.addEventListener('click', function() {
+    rockChoice.addEventListener('click', function() {
         game("r");
     });
 
-    paper_div.addEventListener('click', function() {
+    paperChoice.addEventListener('click', function() {
         game("p");
     });
 
-    scissor_div.addEventListener('click', function() {
+    scissorChoice.addEventListener('click', function() {
         game("s");
     });
 
@@ -197,9 +202,6 @@ check.addEventListener('click', () => {
 })
 
 
-
-
-
 // // Modal added for rules
 const openModalButtons = document.querySelectorAll('[data-modal-target]')
 const closeModalButtons = document.querySelectorAll('[data-close-button]')
@@ -226,13 +228,13 @@ closeModalButtons.forEach(button => {
   })
 })
 
-function openModal(modal) {
+openModal = (modal)=> {
   if (modal == null) return
   modal.classList.add('active')
   overlay.classList.add('active')
 }
 
-function closeModal(modal) {
+closeModal = (modal)=> {
   if (modal == null) return
   modal.classList.remove('active')
   overlay.classList.remove('active')
